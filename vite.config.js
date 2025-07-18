@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+/* import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal"; */
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -9,7 +9,7 @@ dotenv.config();
 export default defineConfig({
   plugins: [
     react(),
-    runtimeErrorOverlay(),
+    /* runtimeErrorOverlay(), */
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [
