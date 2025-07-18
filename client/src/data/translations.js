@@ -187,7 +187,7 @@ export const translations = {
       educationalStreams: "Educational Streams",
       contactInfo: "Contact Info",
       copyright: "© 2024 Pavansut School, Markal. All rights reserved.",
-      designedWith: "Designed with ❤️ for rural education"
+      designedWith: "Designed for rural education"
     },
     home_page: {
       learn_more_programs: "Learn More About Our Programs",
@@ -251,7 +251,7 @@ export const translations = {
       contact: "संपर्क"
     },
     hero: {
-      title: "पवनसुत शाळा, मारकल येथे आपले स्वागत",
+      title: "पवनसुत शाळा, मरकळ येथे आपले स्वागत",
       subtitle: "ग्रामीण महाराष्ट्रात तीन शैक्षणिक प्रवाहांसह दर्जेदार शिक्षण: मराठी माध्यम, अर्ध-इंग्रजी आणि इंग्रजी माध्यम कार्यक्रम प्री-प्राइमरी ते वर्ग ६ पर्यंत.",
       cta_primary: "कॅम्पस भेट नियोजित करा",
       cta_secondary: "माहितीपत्रक डाउनलोड करा",
@@ -389,7 +389,7 @@ export const translations = {
         title: "संपर्क माहिती",
         address: {
           title: "पत्ता",
-          value: "पवनसुत शाळा\nमारकल गाव, ता. शिरूर\nजि. पुणे, महाराष्ट्र ४१२२०८"
+          value: "पवनसुत शाळा\nमरकळ गाव, ता. शिरूर\nजि. पुणे, महाराष्ट्र ४१२२०८"
         },
         phone: {
           title: "फोन",
@@ -427,8 +427,8 @@ export const translations = {
       quickLinks: "द्रुत दुवे",
       educationalStreams: "शैक्षणिक प्रवाह",
       contactInfo: "संपर्क माहिती",
-      copyright: "© २०२४ पवनसुत शाळा, मारकल. सर्व हक्क राखीव.",
-      designedWith: "ग्रामीण शिक्षणासाठी ❤️ ने डिझाइन केलेले"
+      copyright: "© २०२४ पवनसुत शाळा, मरकळ. सर्व हक्क राखीव.",
+      designedWith: "ग्रामीण शिक्षणासाठी डिझाइन केलेले"
     },
     about_page: {
       glance_title: "एका दृष्टिक्षेपात शाळा",
