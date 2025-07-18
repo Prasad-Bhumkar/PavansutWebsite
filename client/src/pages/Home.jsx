@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'wouter';
+import { facilities, facultyMembers } from '../data/schoolData';
 import { useLanguage } from '../contexts/LanguageContext';
-import { schoolStats, educationalStreams, facilities, facultyMembers } from '../data/schoolData';
+import { schoolStats } from '../data/schoolData';
 import StreamCard from '../components/StreamCard';
 import FacilityCard from '../components/FacilityCard';
 import FacultyCard from '../components/FacultyCard';
-import AnimatedSection from '../components/AnimatedSection';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -33,40 +34,42 @@ export default function Home() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="max-w-4xl">
-            <div className="mb-6">
-              <span className="inline-block bg-school-secondary px-4 py-2 rounded-full text-sm font-semibold text-white">
-                <i className="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>
-                Established 2010 • Markal, Maharashtra
-              </span>
-            </div>
-            
-            <h1 className="font-poppins font-bold text-responsive-3xl leading-tight mb-6">
-              {t.hero.title.split('Pavansut School')[0]}
-              <span className="text-school-secondary">Pavansut School</span>
-              {t.hero.title.split('Pavansut School')[1]}
-            </h1>
-            
-            <p className="text-responsive-lg text-gray-100 mb-8 max-w-2xl leading-relaxed">
-              {t.hero.subtitle}
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Link href="/contact">
-                <button className="bg-school-accent hover:bg-school-accent-dark text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-school-accent focus:ring-offset-2 focus:ring-offset-school-primary">
-                  <i className="fas fa-calendar-check mr-2" aria-hidden="true"></i>
-                  {t.hero.cta_primary}
-                </button>
-              </Link>
-              <Link href="/admissions">
-                <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-school-primary font-semibold px-8 py-4 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-school-primary">
-                  <i className="fas fa-download mr-2" aria-hidden="true"></i>
-                  {t.hero.cta_secondary}
-                </button>
-              </Link>
-            </div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
+              <div className="mb-6">
+                <span className="inline-block bg-school-secondary px-4 py-2 rounded-full text-sm font-semibold text-white">
+                  <i className="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>
+                  Established 2010 • Markal, Maharashtra
+                </span>
+              </div>
+              
+              <h1 className="font-poppins font-bold text-responsive-3xl leading-tight mb-6">
+                {t.hero.title.split('Pavansut School')[0]}
+                <span className="text-school-secondary">Pavansut School</span>
+                {t.hero.title.split('Pavansut School')[1]}
+              </h1>
+              
+              <p className="text-responsive-lg text-gray-100 mb-8 max-w-2xl leading-relaxed">
+                {t.hero.subtitle}
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Link href="/contact">
+                  <button className="bg-school-accent hover:bg-school-accent-dark text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-school-accent focus:ring-offset-2 focus:ring-offset-school-primary">
+                    <i className="fas fa-calendar-check mr-2" aria-hidden="true"></i>
+                    {t.hero.cta_primary}
+                  </button>
+                </Link>
+                <Link href="/admissions">
+                  <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-school-primary font-semibold px-8 py-4 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-school-primary">
+                    <i className="fas fa-download mr-2" aria-hidden="true"></i>
+                    {t.hero.cta_secondary}
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-responsive-2xl font-bold mb-1">{schoolStats.yearsOfExcellence}</div>
                 <div className="text-sm text-gray-200">{t.hero.stats.years}</div>
@@ -83,7 +86,7 @@ export default function Home() {
                 <div className="text-responsive-2xl font-bold mb-1">{schoolStats.languageStreams}</div>
                 <div className="text-sm text-gray-200">{t.hero.stats.streams}</div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -91,26 +94,26 @@ export default function Home() {
       {/* About Section */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center mb-16">
             <h2 className="font-poppins font-bold text-responsive-3xl text-gray-900 mb-4">
               {t.about.title}
             </h2>
             <p className="text-responsive-lg text-gray-600 max-w-3xl mx-auto">
               {t.about.subtitle}
             </p>
-          </AnimatedSection>
+          </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection delay={1}>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
               <img 
                 src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
                 alt="Pavansut School campus building with traditional architecture" 
                 className="rounded-2xl shadow-xl w-full h-auto"
                 loading="lazy"
               />
-            </AnimatedSection>
+            </motion.div>
             
-            <AnimatedSection delay={2} className="space-y-6">
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }} className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-school-primary rounded-lg flex items-center justify-center flex-shrink-0">
                   <i className="fas fa-graduation-cap text-white text-lg" aria-hidden="true"></i>
@@ -140,7 +143,7 @@ export default function Home() {
                   <p className="text-gray-600">{t.about.values.description}</p>
                 </div>
               </div>
-            </AnimatedSection>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -148,30 +151,30 @@ export default function Home() {
       {/* Educational Streams Preview */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center mb-16">
             <h2 className="font-poppins font-bold text-responsive-3xl text-gray-900 mb-4">
               {t.academics.title}
             </h2>
             <p className="text-responsive-lg text-gray-600 max-w-3xl mx-auto">
               {t.academics.subtitle}
             </p>
-          </AnimatedSection>
+          </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {educationalStreams.map((stream, index) => (
-              <AnimatedSection key={stream.id} delay={index + 1}>
+            {(t.academics.streams || []).map((stream, index) => (
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 * (index + 1) }} key={stream.id}>
                 <StreamCard 
                   stream={stream}
                   icon={streamIcons[stream.id]}
                 />
-              </AnimatedSection>
+              </motion.div>
             ))}
           </div>
 
           <div className="text-center mt-12">
             <Link href="/academics">
               <button className="bg-school-primary hover:bg-school-primary-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-school-primary focus:ring-offset-2">
-                Learn More About Our Programs
+                {t.home_page.learn_more_programs}
               </button>
             </Link>
           </div>
@@ -181,27 +184,27 @@ export default function Home() {
       {/* Facilities Preview */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center mb-16">
             <h2 className="font-poppins font-bold text-responsive-3xl text-gray-900 mb-4">
               {t.facilities.title}
             </h2>
             <p className="text-responsive-lg text-gray-600 max-w-3xl mx-auto">
               {t.facilities.subtitle}
             </p>
-          </AnimatedSection>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {facilities.slice(0, 6).map((facility, index) => (
-              <AnimatedSection key={facility.id} delay={Math.min(index + 1, 4)}>
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 * (index + 1) }} key={facility.id}>
                 <FacilityCard facility={facility} />
-              </AnimatedSection>
+              </motion.div>
             ))}
           </div>
 
           <div className="text-center mt-12">
             <Link href="/facilities">
               <button className="bg-school-secondary hover:bg-school-secondary-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-school-secondary focus:ring-offset-2">
-                Explore All Facilities
+                {t.home_page.explore_facilities}
               </button>
             </Link>
           </div>
@@ -211,25 +214,27 @@ export default function Home() {
       {/* Faculty Preview */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center mb-16">
             <h2 className="font-poppins font-bold text-responsive-3xl text-gray-900 mb-4">
               {t.faculty.title}
             </h2>
             <p className="text-responsive-lg text-gray-600 max-w-3xl mx-auto">
               {t.faculty.subtitle}
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {facultyMembers.slice(0, 3).map((faculty) => (
-              <FacultyCard key={faculty.id} faculty={faculty} />
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 * (faculty.id) }} key={faculty.id}>
+                <FacultyCard faculty={faculty} />
+              </motion.div>
             ))}
           </div>
 
           <div className="text-center mt-12">
             <Link href="/faculty">
               <button className="bg-school-accent hover:bg-school-accent-dark text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-school-accent focus:ring-offset-2">
-                Meet Our Full Faculty
+                {t.home_page.meet_faculty}
               </button>
             </Link>
           </div>

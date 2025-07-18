@@ -1,8 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { educationalStreams } from '../data/schoolData';
 import StreamCard from '../components/StreamCard';
-import AnimatedSection from '../components/AnimatedSection';
+import { motion } from 'framer-motion';
 
 export default function Academics() {
   const { t } = useLanguage();
@@ -13,38 +12,19 @@ export default function Academics() {
     english: 'fas fa-globe-americas'
   };
 
-  const curriculum = [
-    {
-      level: 'Pre-Primary',
-      age: '3-5 years',
-      subjects: ['Basic Literacy', 'Numeracy', 'Art & Craft', 'Physical Activities', 'Music', 'Moral Values'],
-      icon: 'fas fa-baby'
-    },
-    {
-      level: 'Primary (Class 1-3)',
-      age: '6-8 years',
-      subjects: ['Languages', 'Mathematics', 'Environmental Studies', 'Computer Basics', 'Art', 'Physical Education'],
-      icon: 'fas fa-child'
-    },
-    {
-      level: 'Upper Primary (Class 4-6)',
-      age: '9-11 years',
-      subjects: ['Languages', 'Mathematics', 'Science', 'Social Studies', 'Computer Science', 'Art & Craft', 'Sports'],
-      icon: 'fas fa-user-graduate'
-    }
-  ];
+  
 
   return (
     <main id="main-content" role="main">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-school-primary to-school-primary-dark text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-poppins text-black font-bold text-responsive-3xl mb-6">
+          <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="font-poppins text-black font-bold text-responsive-3xl mb-6">
             {t.academics.title}
-          </h1>
-          <p className="text-responsive-lg max-w-3xl mx-auto text-black">
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="text-responsive-lg max-w-3xl mx-auto text-black">
             {t.academics.subtitle}
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -52,12 +32,13 @@ export default function Academics() {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8">
-            {educationalStreams.map((stream) => (
-              <StreamCard 
-                key={stream.id}
-                stream={stream}
-                icon={streamIcons[stream.id]}
-              />
+            {(t.academics.streams || []).map((stream, index) => (
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 * (index + 1) }} key={stream.id}>
+                <StreamCard 
+                  stream={stream}
+                  icon={streamIcons[stream.id]}
+                />
+              </motion.div>
             ))}
           </div>
         </div>
@@ -66,40 +47,76 @@ export default function Academics() {
       {/* Curriculum Structure */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center mb-16">
             <h2 className="font-poppins font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
-              Curriculum Structure
+              {t.academics_page.curriculum_title}
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our comprehensive curriculum is designed to foster holistic development through age-appropriate learning experiences.
+              {t.academics_page.curriculum_subtitle}
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {curriculum.map((level, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8 text-center card-hover">
-                <div className="w-16 h-16 bg-school-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className={`${level.icon} text-white text-2xl`} aria-hidden="true"></i>
-                </div>
-                
-                <h3 className="font-poppins font-bold text-xl text-gray-900 mb-2">{level.level}</h3>
-                <p className="text-school-primary font-medium mb-4">{level.age}</p>
-                
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-gray-900 mb-3">Key Subjects:</h4>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {level.subjects.map((subject, subIndex) => (
-                      <span 
-                        key={subIndex}
-                        className="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border"
-                      >
-                        {subject}
-                      </span>
-                    ))}
-                  </div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="bg-gray-50 rounded-2xl p-8 text-center card-hover">
+              <div className="w-16 h-16 bg-school-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                <i className="fas fa-baby text-white text-2xl" aria-hidden="true"></i>
+              </div>
+              <h3 className="font-poppins font-bold text-xl text-gray-900 mb-2">{t.academics_page.pre_primary_level}</h3>
+              <p className="text-school-primary font-medium mb-4">{t.academics_page.pre_primary_age}</p>
+              <div className="space-y-2">
+                <h4 className="font-semibold text-gray-900 mb-3">{t.academics_page.key_subjects}</h4>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {t.academics_page.pre_primary_subjects.map((subject, subIndex) => (
+                    <span 
+                      key={subIndex}
+                      className="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border"
+                    >
+                      {subject}
+                    </span>
+                  ))}
                 </div>
               </div>
-            ))}
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }} className="bg-gray-50 rounded-2xl p-8 text-center card-hover">
+              <div className="w-16 h-16 bg-school-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                <i className="fas fa-child text-white text-2xl" aria-hidden="true"></i>
+              </div>
+              <h3 className="font-poppins font-bold text-xl text-gray-900 mb-2">{t.academics_page.primary_level}</h3>
+              <p className="text-school-primary font-medium mb-4">{t.academics_page.primary_age}</p>
+              <div className="space-y-2">
+                <h4 className="font-semibold text-gray-900 mb-3">{t.academics_page.key_subjects}</h4>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {t.academics_page.primary_subjects.map((subject, subIndex) => (
+                    <span 
+                      key={subIndex}
+                      className="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border"
+                    >
+                      {subject}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.8 }} className="bg-gray-50 rounded-2xl p-8 text-center card-hover">
+              <div className="w-16 h-16 bg-school-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                <i className="fas fa-user-graduate text-white text-2xl" aria-hidden="true"></i>
+              </div>
+              <h3 className="font-poppins font-bold text-xl text-gray-900 mb-2">{t.academics_page.upper_primary_level}</h3>
+              <p className="text-school-primary font-medium mb-4">{t.academics_page.upper_primary_age}</p>
+              <div className="space-y-2">
+                <h4 className="font-semibold text-gray-900 mb-3">{t.academics_page.key_subjects}</h4>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {t.academics_page.upper_primary_subjects.map((subject, subIndex) => (
+                    <span 
+                      key={subIndex}
+                      className="bg-white text-gray-700 px-3 py-1 rounded-full text-sm border"
+                    >
+                      {subject}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -108,9 +125,9 @@ export default function Academics() {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
               <h2 className="font-poppins font-bold text-2xl lg:text-3xl text-gray-900 mb-6">
-                Assessment & Evaluation
+                {t.academics_page.assessment_title}
               </h2>
               
               <div className="space-y-6">
@@ -119,8 +136,8 @@ export default function Academics() {
                     <i className="fas fa-chart-line text-white" aria-hidden="true"></i>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg text-gray-900 mb-2">Continuous Assessment</h3>
-                    <p className="text-gray-600">Regular evaluation through projects, assignments, and interactive activities to track student progress.</p>
+                    <h3 className="font-semibold text-lg text-gray-900 mb-2">{t.academics_page.continuous_assessment_title}</h3>
+                    <p className="text-gray-600">{t.academics_page.continuous_assessment_text}</p>
                   </div>
                 </div>
                 
@@ -129,8 +146,8 @@ export default function Academics() {
                     <i className="fas fa-clipboard-check text-white" aria-hidden="true"></i>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg text-gray-900 mb-2">Formative Evaluation</h3>
-                    <p className="text-gray-600">Ongoing feedback mechanism to identify learning gaps and provide timely support.</p>
+                    <h3 className="font-semibold text-lg text-gray-900 mb-2">{t.academics_page.formative_evaluation_title}</h3>
+                    <p className="text-gray-600">{t.academics_page.formative_evaluation_text}</p>
                   </div>
                 </div>
                 
@@ -139,21 +156,21 @@ export default function Academics() {
                     <i className="fas fa-medal text-white" aria-hidden="true"></i>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg text-gray-900 mb-2">Holistic Development</h3>
-                    <p className="text-gray-600">Assessment includes academic performance, creativity, social skills, and physical development.</p>
+                    <h3 className="font-semibold text-lg text-gray-900 mb-2">{t.academics_page.holistic_development_title}</h3>
+                    <p className="text-gray-600">{t.academics_page.holistic_development_text}</p>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
             
-            <div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
               <img 
                 src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
                 alt="Students engaged in interactive learning and assessment activities" 
                 className="rounded-2xl shadow-xl w-full h-auto"
                 loading="lazy"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -161,32 +178,32 @@ export default function Academics() {
       {/* Extracurricular Activities */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center mb-16">
             <h2 className="font-poppins font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
-              Extracurricular Activities
+              {t.academics_page.extracurricular_title}
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Beyond academics, we offer diverse activities to nurture talents and develop well-rounded personalities.
+              {t.academics_page.extracurricular_subtitle}
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Cultural Programs', icon: 'fas fa-music', color: 'bg-purple-500' },
-              { name: 'Sports & Games', icon: 'fas fa-trophy', color: 'bg-green-500' },
-              { name: 'Science Club', icon: 'fas fa-atom', color: 'bg-blue-500' },
-              { name: 'Art & Craft', icon: 'fas fa-paint-brush', color: 'bg-pink-500' },
-              { name: 'Drama & Theatre', icon: 'fas fa-theater-masks', color: 'bg-indigo-500' },
-              { name: 'Environmental Club', icon: 'fas fa-leaf', color: 'bg-green-600' },
-              { name: 'Reading Club', icon: 'fas fa-book-reader', color: 'bg-yellow-500' },
-              { name: 'Community Service', icon: 'fas fa-hands-helping', color: 'bg-red-500' }
+              { name: t.academics_page.cultural_programs, icon: 'fas fa-music', color: 'bg-purple-500' },
+              { name: t.academics_page.sports_games, icon: 'fas fa-trophy', color: 'bg-green-500' },
+              { name: t.academics_page.science_club, icon: 'fas fa-atom', color: 'bg-blue-500' },
+              { name: t.academics_page.art_craft, icon: 'fas fa-paint-brush', color: 'bg-pink-500' },
+              { name: t.academics_page.drama_theatre, icon: 'fas fa-theater-masks', color: 'bg-indigo-500' },
+              { name: t.academics_page.environmental_club, icon: 'fas fa-leaf', color: 'bg-green-600' },
+              { name: t.academics_page.reading_club, icon: 'fas fa-book-reader', color: 'bg-yellow-500' },
+              { name: t.academics_page.community_service, icon: 'fas fa-hands-helping', color: 'bg-red-500' }
             ].map((activity, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 * (index + 1) }} key={index} className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300">
                 <div className={`w-12 h-12 ${activity.color} rounded-lg flex items-center justify-center mx-auto mb-4`}>
                   <i className={`${activity.icon} text-white`} aria-hidden="true"></i>
                 </div>
                 <h3 className="font-semibold text-gray-900">{activity.name}</h3>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

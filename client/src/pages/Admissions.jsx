@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import AnimatedSection from '../components/AnimatedSection';
+import { motion } from 'framer-motion';
 
 export default function Admissions() {
   const { t } = useLanguage();
@@ -17,12 +17,12 @@ export default function Admissions() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-school-primary to-school-primary-dark text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-poppins font-bold  text-black text-responsive-3xl mb-6">
+          <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="font-poppins font-bold  text-black text-responsive-3xl mb-6">
             {t.admissions.title}
-          </h1>
-          <p className="text-responsive-lg max-w-3xl mx-auto text-black">
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="text-responsive-lg max-w-3xl mx-auto text-black">
             {t.admissions.subtitle}
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -30,7 +30,7 @@ export default function Admissions() {
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
               <div className="bg-school-primary rounded-2xl p-8 text-white mb-8">
                 <h3 className="font-poppins font-bold text-2xl mb-6">{t.admissions.process.title}</h3>
                 <div className="space-y-4">
@@ -85,9 +85,9 @@ export default function Admissions() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-gray-50 rounded-2xl p-8">
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="bg-gray-50 rounded-2xl p-8">
               <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-6">{t.admissions.documents.title}</h3>
               <div className="space-y-4 mb-8">
                 {t.admissions.documents.items.map((document, index) => (
@@ -135,7 +135,7 @@ export default function Admissions() {
                   </div>
                 )}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -143,14 +143,14 @@ export default function Admissions() {
       {/* Eligibility Criteria */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center mb-16">
             <h2 className="font-poppins font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
               Eligibility Criteria
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Admission requirements for different grade levels at Pavansut School.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -176,7 +176,7 @@ export default function Admissions() {
                 color: 'bg-blue-500'
               }
             ].map((criteria, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 * (index + 1) }} key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
                 <div className="text-center mb-4">
                   <div className={`w-16 h-16 ${criteria.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
                     <i className={`${criteria.icon} text-white text-2xl`} aria-hidden="true"></i>
@@ -196,7 +196,7 @@ export default function Admissions() {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -205,14 +205,14 @@ export default function Admissions() {
       {/* FAQ Section */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center mb-16">
             <h2 className="font-poppins font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Common questions about the admission process at Pavansut School.
             </p>
-          </div>
+          </motion.div>
 
           <div className="max-w-4xl mx-auto space-y-6">
             {[
@@ -237,10 +237,10 @@ export default function Admissions() {
                 answer: 'Yes, we offer merit-based and need-based scholarships for deserving students. Please contact our admissions office for more details.'
               }
             ].map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6">
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 * (index + 1) }} key={index} className="bg-gray-50 rounded-xl p-6">
                 <h3 className="font-poppins font-semibold text-lg text-gray-900 mb-3">{faq.question}</h3>
                 <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

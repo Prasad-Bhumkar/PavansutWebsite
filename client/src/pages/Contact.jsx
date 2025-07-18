@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -13,6 +14,7 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -22,23 +24,43 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    console.log('Form submitted');
 
-    // For static website - show success message without backend submission
-    setTimeout(() => {
-      setShowSuccessMessage(true);
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+    // Send email using EmailJS
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    console.log('EmailJS credentials:', { serviceID, templateID, publicKey });
+    console.log('Form data:', formData);
+
+    emailjs.send(serviceID, templateID, formData, {publicKey: publicKey})
+      .then(() => {
+        console.log('Email sent successfully');
+        setShowSuccessMessage(true);
+        setShowErrorMessage(false);
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+        setIsSubmitting(false);
+
+        // Hide success message after 4 seconds
+        setTimeout(() => setShowSuccessMessage(false), 4000);
+      })
+      .catch((error) => {
+        console.error('Email failed to send:', error);
+        setShowErrorMessage(true);
+        setShowSuccessMessage(false);
+        setIsSubmitting(false);
+
+        // Hide error message after 4 seconds
+        setTimeout(() => setShowErrorMessage(false), 4000);
       });
-      setIsSubmitting(false);
-
-      // Hide success message after 4 seconds
-      setTimeout(() => setShowSuccessMessage(false), 4000);
-    }, 1000);
   };
 
   const socialLinks = [
@@ -143,6 +165,13 @@ export default function Contact() {
                 <div className="mb-6 p-4 bg-green-600 text-white rounded-lg">
                   <i className="fas fa-check-circle mr-2" aria-hidden="true"></i>
                   Thank you for your interest! Please contact us directly using the information provided above.
+                </div>
+              )}
+
+              {showErrorMessage && (
+                <div className="mb-6 p-4 bg-red-600 text-white rounded-lg">
+                  <i className="fas fa-exclamation-circle mr-2" aria-hidden="true"></i>
+                  Oops! Something went wrong. Please try again later.
                 </div>
               )}
 

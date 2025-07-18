@@ -188,6 +188,56 @@ export const translations = {
       contactInfo: "Contact Info",
       copyright: "© 2024 Pavansut School, Markal. All rights reserved.",
       designedWith: "Designed with ❤️ for rural education"
+    },
+    home_page: {
+      learn_more_programs: "Learn More About Our Programs",
+      explore_facilities: "Explore All Facilities",
+      meet_faculty: "Meet Our Full Faculty"
+    },
+    
+    about_page: {
+      glance_title: "School at a Glance",
+      journey_title: "Our Journey",
+      year_established: "Year Established",
+      foundation_title: "Foundation",
+      foundation_text: "Pavansut School was established with a vision to provide quality education in rural Maharashtra, starting with just 50 students and 3 teachers.",
+      expansion_title: "Expansion",
+      expansion_text: "Introduced English medium stream and expanded infrastructure with modern classrooms, science laboratory, and computer lab.",
+      digital_title: "Digital Transformation",
+      digital_text: "Adopted smart classroom technology and digital learning platforms, ensuring continuity during the pandemic era.",
+      present_title: "Present Day",
+      present_text: "Today, we proudly serve over 350 students across three educational streams with 15 qualified teachers and state-of-the-art facilities."
+    },
+    academics_page: {
+      curriculum_title: "Curriculum Structure",
+      curriculum_subtitle: "Our comprehensive curriculum is designed to foster holistic development through age-appropriate learning experiences.",
+      assessment_title: "Assessment & Evaluation",
+      continuous_assessment_title: "Continuous Assessment",
+      continuous_assessment_text: "Regular evaluation through projects, assignments, and interactive activities to track student progress.",
+      formative_evaluation_title: "Formative Evaluation",
+      formative_evaluation_text: "Ongoing feedback mechanism to identify learning gaps and provide timely support.",
+      holistic_development_title: "Holistic Development",
+      holistic_development_text: "Assessment includes academic performance, creativity, social skills, and physical development.",
+      extracurricular_title: "Extracurricular Activities",
+      extracurricular_subtitle: "Beyond academics, we offer diverse activities to nurture talents and develop well-rounded personalities.",
+      pre_primary_level: "Pre-Primary",
+      pre_primary_age: "3-5 years",
+      pre_primary_subjects: ["Basic Literacy", "Numeracy", "Art & Craft", "Physical Activities", "Music", "Moral Values"],
+      primary_level: "Primary (Class 1-3)",
+      primary_age: "6-8 years",
+      primary_subjects: ["Languages", "Mathematics", "Environmental Studies", "Computer Basics", "Art", "Physical Education"],
+      upper_primary_level: "Upper Primary (Class 4-6)",
+      upper_primary_age: "9-11 years",
+      upper_primary_subjects: ["Languages", "Mathematics", "Science", "Social Studies", "Computer Science", "Art & Craft", "Sports"],
+      key_subjects: "Key Subjects:",
+      cultural_programs: "Cultural Programs",
+      sports_games: "Sports & Games",
+      science_club: "Science Club",
+      art_craft: "Art & Craft",
+      drama_theatre: "Drama & Theatre",
+      environmental_club: "Environmental Club",
+      reading_club: "Reading Club",
+      community_service: "Community Service"
     }
   },
   mr: {
@@ -379,197 +429,57 @@ export const translations = {
       contactInfo: "संपर्क माहिती",
       copyright: "© २०२४ पवनसुत शाळा, मारकल. सर्व हक्क राखीव.",
       designedWith: "ग्रामीण शिक्षणासाठी ❤️ ने डिझाइन केलेले"
-    }
+    },
+    about_page: {
+      glance_title: "एका दृष्टिक्षेपात शाळा",
+      journey_title: "आमचा प्रवास",
+      year_established: "स्थापना वर्ष",
+      foundation_title: "पाया",
+      foundation_text: "पवनसुत शाळेची स्थापना ग्रामीण महाराष्ट्रात दर्जेदार शिक्षण देण्याच्या दृष्टीकोनातून झाली, ज्याची सुरुवात फक्त ५० विद्यार्थी आणि ३ शिक्षकांपासून झाली.",
+      expansion_title: "विस्तार",
+      expansion_text: "इंग्रजी माध्यमाचा प्रवाह सुरू केला आणि आधुनिक वर्गखोल्या, विज्ञान प्रयोगशाळा आणि संगणक प्रयोगशाळेसह पायाभूत सुविधांचा विस्तार केला.",
+      digital_title: "डिजिटल परिवर्तन",
+      digital_text: "स्मार्ट क्लासरूम तंत्रज्ञान आणि डिजिटल शिक्षण प्लॅटफॉर्मचा अवलंब केला, ज्यामुळे महामारीच्या काळात सातत्य सुनिश्चित झाले.",
+      present_title: "आजचा दिवस",
+      present_text: "आज, आम्ही १५ पात्र शिक्षक आणि अत्याधुनिक सुविधांसह तीन शैक्षणिक प्रवाहांमध्ये ३५० हून अधिक विद्यार्थ्यांना अभिमानाने सेवा देत आहोत."
+    },
+    academics_page: {
+      curriculum_title: "अभ्यासक्रम रचना",
+      curriculum_subtitle: "आमचा व्यापक अभ्यासक्रम वयोगटानुसार योग्य शिक्षण अनुभवांद्वारे सर्वांगीण विकासाला चालना देण्यासाठी डिझाइन केलेला आहे.",
+      assessment_title: "मूल्यांकन आणि मूल्यमापन",
+      continuous_assessment_title: "सतत मूल्यांकन",
+      continuous_assessment_text: "विद्यार्थ्यांच्या प्रगतीचा मागोवा घेण्यासाठी प्रकल्प, असाइनमेंट आणि परस्परसंवादी क्रियाकलापांद्वारे नियमित मूल्यांकन.",
+      formative_evaluation_title: "रचनात्मक मूल्यमापन",
+      formative_evaluation_text: "शिकण्यामधील अंतर ओळखण्यासाठी आणि वेळेवर समर्थन प्रदान करण्यासाठी चालू अभिप्राय यंत्रणा.",
+      holistic_development_title: "सर्वांगीण विकास",
+      holistic_development_text: "मूल्यांकनामध्ये शैक्षणिक कामगिरी, सर्जनशीलता, सामाजिक कौशल्ये आणि शारीरिक विकास यांचा समावेश होतो.",
+      extracurricular_title: "अभ्यासक्रमेतर क्रियाकलाप",
+      extracurricular_subtitle: "शिक्षणापलीकडे, आम्ही प्रतिभा वाढवण्यासाठी आणि सर्वांगीण व्यक्तिमत्व विकसित करण्यासाठी विविध क्रियाकलाप ऑफर करतो.",
+      pre_primary_level: "पूर्व-प्राथमिक",
+      pre_primary_age: "३-५ वर्षे",
+      pre_primary_subjects: ["मूलभूत साक्षरता", "संख्याज्ञान", "कला आणि हस्तकला", "शारीरिक क्रियाकलाप", "संगीत", "नैतिक मूल्ये"],
+      primary_level: "प्राथमिक (इयत्ता १-३)",
+      primary_age: "६-८ वर्षे",
+      primary_subjects: ["भाषा", "गणित", "पर्यावरण अभ्यास", "संगणक मूलतत्त्वे", "कला", "शारीरिक शिक्षण"],
+      upper_primary_level: "उच्च प्राथमिक (इयत्ता ४-६)",
+      upper_primary_age: "९-११ वर्षे",
+      upper_primary_subjects: ["भाषा", "गणित", "विज्ञान", "सामाजिक अभ्यास", "संगणक विज्ञान", "कला आणि हस्तकला", "क्रीडा"],
+      key_subjects: "मुख्य विषय:",
+      cultural_programs: "सांस्कृतिक कार्यक्रम",
+      sports_games: "क्रीडा आणि खेळ",
+      science_club: "विज्ञान मंडळ",
+      art_craft: "कला आणि हस्तकला",
+      drama_theatre: "नाटक आणि रंगभूमी",
+      environmental_club: "पर्यावरण मंडळ",
+      reading_club: "वाचन मंडळ",
+      community_service: "समाजसेवा"
+    },
+    home_page: {
+      learn_more_programs: "आमच्या कार्यक्रमांबद्दल अधिक जाणून घ्या",
+      explore_facilities: "सर्व सुविधा एक्सप्लोर करा",
+      meet_faculty: "आमच्या संपूर्ण प्राध्यापकांना भेटा"
+    },
+    
   },
-  "semi-en": {
-    navigation: {
-      home: "Home",
-      about: "About",
-      academics: "शैक्षणिक",
-      facilities: "Facilities",
-      faculty: "शिक्षक",
-      admissions: "Admissions",
-      contact: "संपर्क"
-    },
-    hero: {
-      title: "Welcome to Pavansut School, Markal",
-      subtitle: "ग्रामीण Maharashtra मध्ये तीन streams सह quality education: Marathi-medium, Semi-English आणि English-medium programs Pre-Primary ते Class 6 पर्यंत.",
-      cta_primary: "Campus Visit Schedule करा",
-      cta_secondary: "Brochure Download करा",
-      stats: {
-        years: "Years of Excellence",
-        students: "Students नोंदणी",
-        teachers: "Qualified Teachers",
-        streams: "Language Streams"
-      }
-    },
-    about: {
-      title: "Pavansut School बद्दल",
-      subtitle: "2010 मध्ये established, Pavansut School ग्रामीण Maharashtra मधील quality education चा cornerstone आहे, जी local culture चा honor करत आणि students ना global success साठी prepare करत comprehensive learning opportunities provide करते.",
-      mission: {
-        title: "आमचे Mission",
-        description: "प्रत्येक child मध्ये intellectual curiosity, cultural values आणि social responsibility nurture करणारे holistic education provide करणे."
-      },
-      vision: {
-        title: "आमची Vision",
-        description: "ग्रामीण Maharashtra मधील leading educational institution बनून, students ना interconnected world मध्ये success साठी prepare करणे."
-      },
-      values: {
-        title: "आमची Values",
-        description: "Education मध्ये excellence, cultural heritage चा respect, teaching methods मध्ये innovation आणि rural development ची commitment."
-      }
-    },
-    academics: {
-      title: "Educational Streams",
-      subtitle: "आमच्या तीन carefully designed educational streams पैकी choose करा, प्रत्येक diverse learning preferences साठी tailored आणि students ना त्यांच्या unique educational journey साठी prepare करतो.",
-      marathi: {
-        title: "Marathi Medium",
-        subtitle: "मातृभाषा शिक्षण",
-        features: ["Native language instruction", "Cultural integration", "State board curriculum", "Local context learning"]
-      },
-      semiEnglish: {
-        title: "Semi-English",
-        subtitle: "Balanced Bilingual",
-        features: ["Bilingual instruction", "English language focus", "Marathi cultural base", "Bridge to English medium"]
-      },
-      english: {
-        title: "English Medium",
-        subtitle: "Global Curriculum",
-        features: ["English instruction", "International curriculum", "Global perspective", "Advanced preparation"]
-      }
-    },
-    facilities: {
-      title: "World-Class Facilities",
-      subtitle: "आमच्या state-of-the-art facilities students ना enriching environment provide करतात जे academic excellence, creative expression आणि physical development ला support करतात.",
-      items: {
-        smartClassrooms: {
-          title: "Smart Classrooms",
-          description: "Digital boards, projectors आणि modern teaching aids नी equipped interactive learning environments."
-        },
-        scienceLab: {
-          title: "Science Laboratory",
-          description: "Hands-on scientific experiments आणि practical learning experiences साठी well-equipped laboratory."
-        },
-        computerLab: {
-          title: "Computer Laboratory",
-          description: "Digital literacy आणि programming skills develop करण्यासाठी latest technology सह modern computer lab."
-        },
-        library: {
-          title: "Library",
-          description: "Reading habits आणि research skills foster करण्यासाठी multiple languages मधील books चा comprehensive collection."
-        },
-        sportsGround: {
-          title: "Sports Ground",
-          description: "Various sports activities आणि physical education programs साठी spacious playground."
-        },
-        artRoom: {
-          title: "Art & Craft Room",
-          description: "Artistic expression, craft activities आणि creative thinking skills develop करण्यासाठी creative space."
-        }
-      }
-    },
-    faculty: {
-      title: "आमचे Dedicated Faculty",
-      subtitle: "आमचे experienced आणि passionate educators प्रत्येक student ची potential nurture करण्यासाठी आणि supportive learning environment मध्ये personalized attention provide करण्यासाठी committed आहेत."
-    },
-    admissions: {
-      title: "Admissions Open",
-      subtitle: "आमच्या vibrant learning community मध्ये join व्हा! 2024-25 academic year साठी admissions open आहेत. आम्ही diverse backgrounds च्या students ना आमच्या educational journey चा part होण्यासाठी welcome करतो.",
-      process: {
-        title: "Admission Process",
-        steps: {
-          application: {
-            title: "Application Submission",
-            description: "Required documents सह admission form complete करा आणि submit करा"
-          },
-          assessment: {
-            title: "Assessment & Interaction",
-            description: "Simple assessment आणि parent-teacher interaction session"
-          },
-          confirmation: {
-            title: "Admission Confirmation",
-            description: "Admission letter receive करा आणि enrollment process complete करा"
-          }
-        }
-      },
-      dates: {
-        title: "Important Dates",
-        items: {
-          applicationsOpen: "Applications Open: January 15, 2024",
-          lastDate: "Last Date for Submission: March 31, 2024",
-          assessment: "Assessment Period: April 1-15, 2024",
-          yearBegins: "Academic Year Begins: June 1, 2024"
-        }
-      },
-      documents: {
-        title: "Required Documents",
-        items: [
-          "Birth Certificate (Original + Photocopy)",
-          "Previous School Transfer Certificate (applicable असल्यास)",
-          "Parent/Guardian Identity Proof",
-          "Recent Passport Size Photographs (4 copies)",
-          "Address Proof",
-          "Medical Certificate"
-        ]
-      },
-      fees: {
-        title: "Fee Structure",
-        items: {
-          prePrimary: "Pre-Primary: ₹15,000/year",
-          class1to3: "Class 1-3: ₹18,000/year",
-          class4to6: "Class 4-6: ₹22,000/year"
-        },
-        note: "*Fees मध्ये books, uniform आणि extracurricular activities चा समावेश आहे"
-      },
-      downloadForm: "Admission Form Download करा"
-    },
-    contact: {
-      title: "संपर्कात रहा",
-      subtitle: "Admissions बद्दल questions आहेत किंवा campus visit schedule करू इच्छिता? आम्ही प्रत्येक step मध्ये तुमची help करण्यासाठी येथे आहोत.",
-      info: {
-        title: "Contact Information",
-        address: {
-          title: "Address",
-          value: "Pavansut School\nMarkal Village, Tal. Shirur\nDist. Pune, Maharashtra 412208"
-        },
-        phone: {
-          title: "Phone",
-          value: "+91 98765 43210\n+91 87654 32109"
-        },
-        email: {
-          title: "Email",
-          value: "info@pavansutschool.edu.in\nadmissions@pavansutschool.edu.in"
-        },
-        hours: {
-          title: "Office Hours",
-          value: "Monday - Friday: 8:00 AM - 4:00 PM\nSaturday: 9:00 AM - 2:00 PM"
-        }
-      },
-      form: {
-        title: "आम्हाला Message पाठवा",
-        firstName: "First Name",
-        lastName: "Last Name",
-        email: "Email Address",
-        phone: "Phone Number",
-        subject: "Subject",
-        message: "Message",
-        submit: "Message पाठवा",
-        subjects: {
-          admission: "Admission Inquiry",
-          campusVisit: "Campus Visit",
-          general: "General Information",
-          other: "Other"
-        }
-      },
-      followUs: "आमचे Follow करा"
-    },
-    footer: {
-      description: "तीन educational streams आणि modern facilities सह ग्रामीण Maharashtra मध्ये quality education provide करण्यासाठी committed.",
-      quickLinks: "Quick Links",
-      educationalStreams: "Educational Streams",
-      contactInfo: "Contact Info",
-      copyright: "© 2024 Pavansut School, Markal. All rights reserved.",
-      designedWith: "ग्रामीण education साठी ❤️ ने designed"
-    }
-  }
+  
 };

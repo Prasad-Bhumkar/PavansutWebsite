@@ -13,12 +13,7 @@ export default function Footer() {
     { href: '/admissions', label: t.navigation.admissions }
   ];
 
-  const educationalStreams = [
-    'Marathi Medium',
-    'Semi-English',
-    'English Medium',
-    'Pre-Primary to Class 6'
-  ];
+  
 
   const socialLinks = [
     { icon: 'fab fa-facebook-f', href: '#', label: 'Facebook' },
@@ -68,8 +63,8 @@ export default function Footer() {
           <div>
             <h4 className="font-poppins font-semibold text-lg mb-4">{t.footer.educationalStreams}</h4>
             <ul className="space-y-2">
-              {educationalStreams.map((stream, index) => (
-                <li key={index} className="text-gray-400 text-sm">{stream}</li>
+              {(t.academics.streams || []).map((stream, index) => (
+                <li key={index} className="text-gray-400 text-sm">{stream.title}</li>
               ))}
             </ul>
           </div>

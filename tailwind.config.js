@@ -21,20 +21,20 @@ export default {
           foreground: "var(--popover-foreground)",
         },
         primary: {
-          DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)",
+          DEFAULT: "hsl(220, 75%, 60%)",
+          foreground: "hsl(211, 100%, 99%)",
+          dark: "hsl(220, 80%, 50%)",
+          light: "hsl(220, 70%, 70%)",
         },
         secondary: {
-          DEFAULT: "var(--secondary)",
-          foreground: "var(--secondary-foreground)",
-        },
-        muted: {
-          DEFAULT: "var(--muted)",
-          foreground: "var(--muted-foreground)",
+          DEFAULT: "hsl(142, 71%, 65%)",
+          foreground: "hsl(142, 71%, 15%)",
+          dark: "hsl(142, 71%, 45%)",
         },
         accent: {
-          DEFAULT: "var(--accent)",
-          foreground: "var(--accent-foreground)",
+          DEFAULT: "hsl(25, 95%, 53%)",
+          foreground: "hsl(25, 95%, 10%)",
+          dark: "hsl(25, 95%, 43%)",
         },
         destructive: {
           DEFAULT: "var(--destructive)",

@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
 import { facultyMembers } from '../data/schoolData';
+import { useLanguage } from '../contexts/LanguageContext';
 import FacultyCard from '../components/FacultyCard';
-import AnimatedSection from '../components/AnimatedSection';
+import { motion } from 'framer-motion';
 
 export default function Faculty() {
   const { t } = useLanguage();
@@ -62,12 +62,12 @@ export default function Faculty() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-school-primary to-school-primary-dark text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-poppins font-bold  text-black text-responsive-3xl mb-6">
+          <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="font-poppins font-bold  text-black text-responsive-3xl mb-6">
             {t.faculty.title}
-          </h1>
-          <p className="text-responsive-lg max-w-3xl mx-auto text-black">
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="text-responsive-lg max-w-3xl mx-auto text-black">
             {t.faculty.subtitle}
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -76,13 +76,13 @@ export default function Faculty() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {departmentStats.map((stat, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 * (index + 1) }} key={index} className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
                 <div className={`w-14 h-14 ${stat.color} rounded-lg flex items-center justify-center mx-auto mb-4`}>
                   <i className={`${stat.icon} text-white`} aria-hidden="true"></i>
                 </div>
                 <div className="text-2xl font-bold text-gray-900 mb-1">{stat.count}</div>
                 <div className="text-gray-600 text-sm">{stat.title}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -91,18 +91,20 @@ export default function Faculty() {
       {/* Faculty Members */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center mb-16">
             <h2 className="font-poppins font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
               Meet Our Faculty
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Our dedicated team of educators brings together years of experience, expertise, and passion for nurturing young minds.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {facultyMembers.map((faculty) => (
-              <FacultyCard key={faculty.id} faculty={faculty} />
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 * (faculty.id) }} key={faculty.id}>
+                <FacultyCard faculty={faculty} />
+              </motion.div>
             ))}
           </div>
         </div>
@@ -111,18 +113,18 @@ export default function Faculty() {
       {/* Teaching Approach */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-center mb-16">
             <h2 className="font-poppins font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
               Our Teaching Approach
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We believe in creating an environment where every student can thrive through innovative teaching methods and personalized attention.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {teachingApproach.map((approach, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+              <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 * (index + 1) }} key={index} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-school-primary rounded-lg flex items-center justify-center flex-shrink-0">
                     <i className={`${approach.icon} text-white`} aria-hidden="true"></i>
@@ -132,7 +134,7 @@ export default function Faculty() {
                     <p className="text-gray-600 leading-relaxed">{approach.description}</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -142,7 +144,7 @@ export default function Faculty() {
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
               <h2 className="font-poppins font-bold text-2xl lg:text-3xl text-gray-900 mb-6">
                 Professional Development
               </h2>
@@ -178,16 +180,16 @@ export default function Faculty() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
             
-            <div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
               <img 
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
                 alt="Faculty members engaged in professional development and collaborative teaching" 
                 className="rounded-2xl shadow-xl w-full h-auto"
                 loading="lazy"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

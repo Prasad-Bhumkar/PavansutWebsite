@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { schoolStats } from '../data/schoolData';
-import AnimatedSection from '../components/AnimatedSection';
+import { motion } from 'framer-motion';
 
 export default function About() {
   const { t } = useLanguage();
@@ -11,12 +11,12 @@ export default function About() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-school-primary to-school-primary-dark text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-poppins font-bold text-responsive-3xl mb-6 text-black">
+          <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="font-poppins font-bold text-responsive-3xl mb-6 text-black">
             {t.about.title}
-          </h1>
-          <p className="text-responsive-lg max-w-3xl mx-auto text-black">
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="text-responsive-lg max-w-3xl mx-auto text-black">
             {t.about.subtitle}
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -24,16 +24,16 @@ export default function About() {
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            <div>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
               <img 
                 src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
                 alt="Pavansut School campus building showcasing traditional and modern architecture" 
                 className="rounded-2xl shadow-xl w-full h-auto"
                 loading="lazy"
               />
-            </div>
+            </motion.div>
             
-            <div className="space-y-8">
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="space-y-8">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-school-primary rounded-lg flex items-center justify-center flex-shrink-0">
                   <i className="fas fa-graduation-cap text-white text-lg" aria-hidden="true"></i>
@@ -63,13 +63,13 @@ export default function About() {
                   <p className="text-gray-600 leading-relaxed">{t.about.values.description}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* School Statistics */}
-          <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="bg-gray-50 rounded-2xl p-8 lg:p-12">
             <h2 className="font-poppins font-bold text-2xl lg:text-3xl text-center text-gray-900 mb-12">
-              School at a Glance
+              {t.about_page.glance_title}
             </h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -78,7 +78,7 @@ export default function About() {
                   <i className="fas fa-calendar-alt text-white text-xl" aria-hidden="true"></i>
                 </div>
                 <div className="text-3xl font-bold text-gray-900 mb-2">{schoolStats.established}</div>
-                <div className="text-gray-600">Year Established</div>
+                <div className="text-gray-600">{t.about_page.year_established}</div>
               </div>
               
               <div className="text-center">
@@ -105,12 +105,12 @@ export default function About() {
                 <div className="text-gray-600">{t.hero.stats.streams}</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* History Section */}
-          <div className="bg-gray-50 rounded-2xl p-8 lg:p-12">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="bg-gray-50 rounded-2xl p-8 lg:p-12">
             <h2 className="font-poppins font-bold text-2xl lg:text-3xl text-center text-gray-900 mb-12">
-              Our Journey
+              {t.about_page.journey_title}
             </h2>
             
             <div className="space-y-8">
@@ -119,8 +119,8 @@ export default function About() {
                   <span className="text-white font-bold">2010</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg text-gray-900 mb-2">Foundation</h3>
-                  <p className="text-gray-600">Pavansut School was established with a vision to provide quality education in rural Maharashtra, starting with just 50 students and 3 teachers.</p>
+                  <h3 className="font-semibold text-lg text-gray-900 mb-2">{t.about_page.foundation_title}</h3>
+                  <p className="text-gray-600">{t.about_page.foundation_text}</p>
                 </div>
               </div>
               
@@ -129,8 +129,8 @@ export default function About() {
                   <span className="text-white font-bold">2015</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg text-gray-900 mb-2">Expansion</h3>
-                  <p className="text-gray-600">Introduced English medium stream and expanded infrastructure with modern classrooms, science laboratory, and computer lab.</p>
+                  <h3 className="font-semibold text-lg text-gray-900 mb-2">{t.about_page.expansion_title}</h3>
+                  <p className="text-gray-600">{t.about_page.expansion_text}</p>
                 </div>
               </div>
               
@@ -139,8 +139,8 @@ export default function About() {
                   <span className="text-white font-bold">2020</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg text-gray-900 mb-2">Digital Transformation</h3>
-                  <p className="text-gray-600">Adopted smart classroom technology and digital learning platforms, ensuring continuity during the pandemic era.</p>
+                  <h3 className="font-semibold text-lg text-gray-900 mb-2">{t.about_page.digital_title}</h3>
+                  <p className="text-gray-600">{t.about_page.digital_text}</p>
                 </div>
               </div>
               
@@ -149,12 +149,12 @@ export default function About() {
                   <span className="text-white font-bold">2024</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg text-gray-900 mb-2">Present Day</h3>
-                  <p className="text-gray-600">Today, we proudly serve over 350 students across three educational streams with 15 qualified teachers and state-of-the-art facilities.</p>
+                  <h3 className="font-semibold text-lg text-gray-900 mb-2">{t.about_page.present_title}</h3>
+                  <p className="text-gray-600">{t.about_page.present_text}</p>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </main>

@@ -5,8 +5,7 @@ const LanguageContext = createContext(undefined);
 
 export const availableLanguages = [
   { code: 'en', name: 'English', native: 'English' },
-  { code: 'mr', name: 'Marathi', native: 'मराठी' },
-  { code: 'semi-en', name: 'Semi-English', native: 'Semi-English' }
+  { code: 'mr', name: 'Marathi', native: 'मराठी' }
 ];
 
 export function LanguageProvider({ children }) {
