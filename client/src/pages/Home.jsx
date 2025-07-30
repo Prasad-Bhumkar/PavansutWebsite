@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'wouter';
+import { Link } from 'react-router-dom';
 import { facilities, facultyMembers } from '../data/schoolData';
 import { useLanguage } from '../contexts/LanguageContext';
 import { schoolStats } from '../data/schoolData';

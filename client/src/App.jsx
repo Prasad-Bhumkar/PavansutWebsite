@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -17,17 +17,17 @@ import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/academics" component={Academics} />
-      <Route path="/facilities" component={Facilities} />
-      <Route path="/faculty" component={Faculty} />
-      <Route path="/admissions" component={Admissions} />
-      <Route path="/contact" component={Contact} />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/academics" element={<Academics />} />
+      <Route path="/facilities" element={<Facilities />} />
+      <Route path="/faculty" element={<Faculty />} />
+      <Route path="/admissions" element={<Admissions />} />
+      <Route path="/contact" element={<Contact />} />
       {/* Fallback to 404 */}
-      <Route component={NotFound} />
-    </Switch>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
@@ -36,14 +36,16 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <LanguageProvider>
-          <div className="min-h-screen flex flex-col">
-            <Header />
-            <div className="flex-1">
-              <Router />
+          <BrowserRouter basename={import.meta.env.BASE_URL}>
+            <div className="min-h-screen flex flex-col">
+              <Header />
+              <div className="flex-1">
+                <Router />
+              </div>
+              <Footer />
             </div>
-            <Footer />
-          </div>
-          <Toaster />
+            <Toaster />
+          </BrowserRouter>
         </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
