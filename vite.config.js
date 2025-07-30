@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export default defineConfig({
+  root: path.resolve(import.meta.dirname, "client"),
   plugins: [
     react(),
     /* runtimeErrorOverlay(), */
@@ -26,16 +27,13 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
-  base: process.env.NODE_ENV === "production" ? "/pavansut-website-react/" : "/",
+  base: '/PavansutWebsite/',
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
   },
-  server: {
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
-    },
+  fs: {
+    strict: true,
+    deny: ["**/.*"],
   },
 });

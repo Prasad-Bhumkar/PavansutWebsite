@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://prasad-bhumkar.github.io/pavansut-website-react",
+  "homepage": "https://prasad-bhumkar.github.io/PavansutWebsite",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
