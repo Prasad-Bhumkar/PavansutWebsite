@@ -46,6 +46,10 @@ export default function Header() {
     return lang ? lang.native : langCode;
   };
 
+  const handleNavClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       {/* Skip Navigation Link for Accessibility */}
@@ -65,7 +69,7 @@ export default function Header() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
           <div className="flex justify-between items-center h-16 lg:h-20">
             {/* Logo Section */}
-            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+            <Link href="/" onClick={handleNavClick} className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <div className="w-10 h-10 lg:w-12 lg:h-12 bg-school-primary rounded-full flex items-center justify-center">
                 <i className="fas fa-graduation-cap text-white text-lg lg:text-xl" aria-hidden="true"></i>
               </div>
@@ -78,12 +82,13 @@ export default function Header() {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               {navLinks.map((link) => (
-                <Link 
+                <Link
                   key={link.href}
                   href={link.href}
+                  onClick={handleNavClick}
                   className={`nav-link transition-colors duration-200 font-medium ${
-                    location === link.href 
-                      ? 'text-school-primary border-b-2 border-school-primary' 
+                    location === link.href
+                      ? 'text-school-primary border-b-2 border-school-primary'
                       : 'text-gray-700 hover:text-school-primary'
                   }`}
                 >
@@ -128,9 +133,10 @@ export default function Header() {
             <div className="lg:hidden py-4 border-t border-gray-200 animate-fade-in">
               <div className="flex flex-col space-y-3">
                 {navLinks.map((link) => (
-                  <Link 
+                  <Link
                     key={link.href}
                     href={link.href}
+                    onClick={handleNavClick}
                     className={`block px-4 py-2 rounded-md transition-colors duration-200 ${
                       location === link.href
                         ? 'text-school-primary bg-blue-50'

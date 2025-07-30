@@ -5,7 +5,7 @@ export default function StreamCard({ stream, icon }) {
     <div className={`bg-white rounded-2xl shadow-lg p-8 transform hover:-translate-y-2 transition-all duration-300 border-t-4 ${stream.borderColor}`}>
       <div className="text-center mb-6">
         <div className={`w-16 h-16 ${stream.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}>
-          <i className={`${icon} ${stream.iconColor} text-2xl`} aria-hidden="true"></i>
+          <i className={`${icon} text-white text-2xl`} aria-hidden="true"></i>
         </div>
         <h3 className="font-poppins font-bold text-xl text-gray-900 mb-2">{stream.title}</h3>
         <p className={`${stream.iconColor} font-medium`}>{stream.subtitle}</p>

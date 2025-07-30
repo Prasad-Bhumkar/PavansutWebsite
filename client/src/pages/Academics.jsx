@@ -12,6 +12,39 @@ export default function Academics() {
     english: 'fas fa-globe-americas'
   };
 
+  const streams = [
+    {
+      id: 'marathi',
+      title: t.academics.marathi.title,
+      subtitle: t.academics.marathi.subtitle,
+      features: t.academics.marathi.features,
+      bgColor: 'bg-orange-500',
+      iconColor: 'text-orange-500',
+      checkColor: 'text-orange-500',
+      borderColor: 'border-orange-500'
+    },
+    {
+      id: 'semi-english',
+      title: t.academics.semiEnglish.title,
+      subtitle: t.academics.semiEnglish.subtitle,
+      features: t.academics.semiEnglish.features,
+      bgColor: 'bg-blue-500',
+      iconColor: 'text-blue-500',
+      checkColor: 'text-blue-500',
+      borderColor: 'border-blue-500'
+    },
+    {
+      id: 'english',
+      title: t.academics.english.title,
+      subtitle: t.academics.english.subtitle,
+      features: t.academics.english.features,
+      bgColor: 'bg-green-500',
+      iconColor: 'text-green-500',
+      checkColor: 'text-green-500',
+      borderColor: 'border-green-500'
+    }
+  ];
+
   
 
   return (
@@ -32,9 +65,9 @@ export default function Academics() {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8">
-            {(t.academics.streams || []).map((stream, index) => (
+            {streams.map((stream, index) => (
               <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 * (index + 1) }} key={stream.id}>
-                <StreamCard 
+                <StreamCard
                   stream={stream}
                   icon={streamIcons[stream.id]}
                 />
