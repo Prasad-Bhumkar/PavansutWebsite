@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'wouter';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Footer() {
   const { t } = useLanguage();
 
   const quickLinks = [
-    { href: '/about', label: t.navigation.about },
-    { href: '/academics', label: t.navigation.academics },
-    { href: '/facilities', label: t.navigation.facilities },
-    { href: '/faculty', label: t.navigation.faculty },
-    { href: '/admissions', label: t.navigation.admissions }
+    { to: '/about', label: t.navigation.about },
+    { to: '/academics', label: t.navigation.academics },
+    { to: '/facilities', label: t.navigation.facilities },
+    { to: '/faculty', label: t.navigation.faculty },
+    { to: '/admissions', label: t.navigation.admissions }
   ];
 
   
@@ -47,9 +47,9 @@ export default function Footer() {
             <h4 className="font-poppins font-semibold text-lg mb-4">{t.footer.quickLinks}</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.to}>
                   <Link 
-                    href={link.href}
+                    to={link.to}
                     className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
                   >
                     {link.label}

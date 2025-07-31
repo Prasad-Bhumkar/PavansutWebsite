@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'wouter';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Header() {
   const { language, setLanguage, t, availableLanguages } = useLanguage();
-  const [location] = useLocation();
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -32,13 +32,13 @@ export default function Header() {
   }, [location]);
 
   const navLinks = [
-    { href: '/', label: t.navigation.home },
-    { href: '/about', label: t.navigation.about },
-    { href: '/academics', label: t.navigation.academics },
-    { href: '/facilities', label: t.navigation.facilities },
-    { href: '/faculty', label: t.navigation.faculty },
-    { href: '/admissions', label: t.navigation.admissions },
-    { href: '/contact', label: t.navigation.contact }
+    { to: '/', label: t.navigation.home },
+    { to: '/about', label: t.navigation.about },
+    { to: '/academics', label: t.navigation.academics },
+    { to: '/facilities', label: t.navigation.facilities },
+    { to: '/faculty', label: t.navigation.faculty },
+    { to: '/admissions', label: t.navigation.admissions },
+    { to: '/contact', label: t.navigation.contact }
   ];
 
   const getLanguageDisplayName = (langCode) => {
@@ -69,7 +69,7 @@ export default function Header() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
           <div className="flex justify-between items-center h-16 lg:h-20">
             {/* Logo Section */}
-            <Link href="/" onClick={handleNavClick} className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+            <Link to="/" onClick={handleNavClick} className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <div className="w-10 h-10 lg:w-12 lg:h-12 bg-school-primary rounded-full flex items-center justify-center">
                 <i className="fas fa-graduation-cap text-white text-lg lg:text-xl" aria-hidden="true"></i>
               </div>
@@ -83,11 +83,11 @@ export default function Header() {
             <div className="hidden lg:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={link.to}
+                  to={link.to}
                   onClick={handleNavClick}
                   className={`nav-link transition-colors duration-200 font-medium ${
-                    location === link.href
+                    location.pathname === link.to
                       ? 'text-school-primary border-b-2 border-school-primary'
                       : 'text-gray-700 hover:text-school-primary'
                   }`}
@@ -134,11 +134,11 @@ export default function Header() {
               <div className="flex flex-col space-y-3">
                 {navLinks.map((link) => (
                   <Link
-                    key={link.href}
-                    href={link.href}
+                    key={link.to}
+                    to={link.to}
                     onClick={handleNavClick}
                     className={`block px-4 py-2 rounded-md transition-colors duration-200 ${
-                      location === link.href
+                      location.pathname === link.to
                         ? 'text-school-primary bg-blue-50'
                         : 'text-gray-700 hover:text-school-primary hover:bg-gray-50'
                     }`}

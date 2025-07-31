@@ -1271,3 +1271,14 @@ export const privacyConfig = {
 **Last Updated**: June 30, 2025
 **Version**: 1.0.0
 **License**: Private - Educational Institution Use
+
+# 📄 License
+    
+    © 2024 Prasad Bhumkar. All rights reserved.
+    
+    This project is a personal creation and is protected under applicable copyright laws.  
+    Unauthorized copying, distribution, modification, or use of this project or its contents by any means is strictly prohibited without explicit written permission from the author.
+    
+    For licensing inquiries or permissions, please contact: your@email.com
+    
+    ---
